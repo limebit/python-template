@@ -15,7 +15,6 @@
     "python.linting.flake8Args": [
         "--max-line-length=100"
     ],
-    "python.venvPath": "${workspaceFolder}/python/.venv",
     "python.autoComplete.extraPaths": [
         "${workspaceFolder}/src"
     ],
