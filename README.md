@@ -2,13 +2,29 @@
 
 ## Setup
 
-### Linux and Mac Users
+### Installation
 
-- run the setup script `./setup.sh` or `sh setup.sh`
+This command will create a virtuelenv and install all dependencies
 
-### Windows Users
+`make install`
 
-- run the setup script `.\setup.ps1`
+### Lint
+
+This command will ensure all dependencies are installed and run flake8
+
+`make lint`
+
+### Format
+
+This command will ensure all dependencies are installed and run black
+
+`make format`
+
+### Cleanup
+
+This command will delete the virtualenv
+
+`make clean`
 
 ## Development
 
