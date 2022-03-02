@@ -1,9 +1,19 @@
-FROM python:3.8-slim
+FROM python:3.8-slim as base
 
-COPY requirements.txt requirements.txt
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-RUN mkdir notepads
-RUN mkdir data
+RUN mkdir /app
+WORKDIR /app
+ADD . .
 
-ENTRYPOINT [ "/bin/sh", "-c", "jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --notebook-dir=/notepads --allow-root" ]
+FROM base as builder
+
+RUN apt-get update && apt-get install -y apt-utils make
+RUN make install
+
+FROM base
+
+COPY --from=builder /app/.venv /app/.venv
+
+EXPOSE 8888
+
+ENTRYPOINT . /app/.venv/bin/activate; \
+  jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --notebook-dir=/app/notepads --allow-root

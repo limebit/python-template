@@ -3,5 +3,6 @@ jupyterlab:
   ports:
     - "8888:8888"
   volumes:
-    - ./data:/data
-    - ./notepads:/notepads
+    - ./data:/app/data
+    - ./notepads:/app/notepads
+    - ./src:/app/src
