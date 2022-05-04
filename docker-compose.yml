@@ -4,5 +4,5 @@ jupyterlab:
     - "8888:8888"
   volumes:
     - ./data:/app/data
-    - ./notepads:/app/notepads
+    - ./notebooks:/app/notebooks
     - ./src:/app/src

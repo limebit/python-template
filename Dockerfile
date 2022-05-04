@@ -16,4 +16,4 @@ COPY --from=builder /app/.venv /app/.venv
 EXPOSE 8888
 
 ENTRYPOINT . /app/.venv/bin/activate; \
-  jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --notebook-dir=/app/notepads --allow-root
+  jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --notebook-dir=/app/notebooks --allow-root
