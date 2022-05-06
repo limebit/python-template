@@ -2,6 +2,10 @@
 
 ## Setup
 
+### First Setup after cloning the Template Repository
+
+Run `make initialize` to initialize the python structure, then commit and push the changes
+
 ### Installation
 
 This command will create a virtuelenv and install all dependencies
