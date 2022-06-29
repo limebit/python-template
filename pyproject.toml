@@ -1,0 +1,7 @@
+[tool.black]
+line-length = 100
+include = '\.pyi?$'
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

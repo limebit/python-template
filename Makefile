@@ -12,6 +12,8 @@ $(VENV_NAME)/bin/activate:
 initialize:
 	sed -i "" s/custom_module/$(subst -,_,$(notdir $(CURDIR)))/g docker-compose.yml
 	sed -i "" s/custom_module/$(subst -,_,$(notdir $(CURDIR)))/g setup.py
+	sed -i "" '/^[[:space:]]rm/ s/custom_module/$(subst -,_,$(notdir $(CURDIR)))/g' Makefile
+	sed -i "" '/^[[:space:]]find/ s/custom_module/$(subst -,_,$(notdir $(CURDIR)))/g' Makefile
 	mv custom_module $(subst -,_,$(notdir $(CURDIR)))
 
 install: prepare-venv
@@ -23,7 +25,8 @@ lint: install
 	${VENV_PYTHON} -m flake8
 
 format: install
-	${VENV_PYTHON} -m black src
-
+	${VENV_PYTHON} -m black .
 clean:
 	rm -rf .venv
+	rm -rf ./custom_module.egg-info
+	find ./custom_module -name __pycache__ -type d -exec rm -r {} +

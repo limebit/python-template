@@ -1,0 +1,15 @@
+[flake8]
+max-line-length = 100
+exclude =
+    .git
+    __pycache__
+    .idea
+    .venv
+    data
+    hooks
+    notebooks
+ignore =
+    E203
+    W605
+    W503
+    W504
