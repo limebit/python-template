@@ -6,7 +6,7 @@ ADD . .
 
 FROM base as builder
 
-RUN apt-get update && apt-get install -y apt-utils make
+RUN apt-get update && apt-get install -y apt-utils make gcc
 RUN make install
 
 FROM base
