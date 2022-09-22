@@ -1,2 +1,2 @@
 [lfs]
-	url = https://lfs.limebit.loc:9000/
+	url = ssh://git@lfs.limebit.de:2222/limebit/python-template
