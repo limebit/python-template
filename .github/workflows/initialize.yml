@@ -26,14 +26,14 @@ jobs:
           sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }}/g docker-compose.yml
           sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }}/g Makefile
           sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }}/g setup.py
-          sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }}/g .github/formatting.yml
-          sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }}/g .github/linting.yml
+          sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }}/g .github/workflows/formatting.yml
+          sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }}/g .github/workflows/linting.yml
           sed -i -e s/python-template/${{ env.REPOSITORY_NAME }}/g .lfsconfig
           sed -i -e s/python-template/${{ env.REPOSITORY_NAME }}/g README.md
           sed -i -e s/python-template/${{ env.REPOSITORY_NAME }}/g .devcontainer/devcontainer.json
           sed -i -e s/python-template/${{ env.REPOSITORY_NAME }}/g .devcontainer/docker-compose.devcontainer.yml
           mv custom_module ${{ env.REPOSITORY_NAME_SNAKE_CASE }}
-          rm -f .github/initialize.yml
+          rm -f .github/workflows/initialize.yml
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
