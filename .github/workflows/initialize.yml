@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
 
-      - run: echo "REPOSITORY_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}' | tr '-' '_' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+      - run: echo "REPOSITORY_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
         shell: bash
 
       - run: echo "REPOSITORY_NAME_SNAKE_CASE=$(echo ${{ env.REPOSITORY_NAME }} | sed -e 's,-,_,')" >> $GITHUB_ENV
@@ -23,15 +23,15 @@ jobs:
       - name: Initialize the project
         run: |
           echo "Renaming the project to ${{ env.REPOSITORY_NAME }}"
-          sed -i "" s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }}/g docker-compose.yml
-          sed -i "" s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }})/g Makefile
-          sed -i "" s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }})/g setup.py
-          sed -i "" s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }})/g .github/formatting.yml
-          sed -i "" s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }})/g .github/linting.yml
-          sed -i "" s/python-template/${{ env.REPOSITORY_NAME }}/g .lfsconfig
-          sed -i "" s/python-template/${{ env.REPOSITORY_NAME }}/g README.md
-          sed -i "" s/python-template/${{ env.REPOSITORY_NAME }}/g .devcontainer/devcontainer.json
-          sed -i "" s/python-template/${{ env.REPOSITORY_NAME }}/g .devcontainer/docker-compose.devcontainer.yml
+          sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }}/g docker-compose.yml
+          sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }})/g Makefile
+          sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }})/g setup.py
+          sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }})/g .github/formatting.yml
+          sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }})/g .github/linting.yml
+          sed -i -e s/python-template/${{ env.REPOSITORY_NAME }}/g .lfsconfig
+          sed -i -e s/python-template/${{ env.REPOSITORY_NAME }}/g README.md
+          sed -i -e s/python-template/${{ env.REPOSITORY_NAME }}/g .devcontainer/devcontainer.json
+          sed -i -e s/python-template/${{ env.REPOSITORY_NAME }}/g .devcontainer/docker-compose.devcontainer.yml
           mv custom_module ${{ env.REPOSITORY_NAME_SNAKE_CASE }})
           rm -f .github/initialize.yml
 
