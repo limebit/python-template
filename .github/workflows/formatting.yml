@@ -17,4 +17,4 @@ jobs:
       - name: Install dependencies
         run: make install
       - name: Format with black
-        run: .venv/bin/python -m black --check --verbose custom_module
+        run: .venv/bin/python -m black --check --verbose .

@@ -3,11 +3,14 @@ VENV_NAME?=.venv
 USER_PYTHON ?= python3
 VENV_PYTHON=${VENV_NAME}/bin/python
 
-prepare-venv: $(VENV_NAME)/bin/activate
+.PHONY = prepare-venv install lint format clean
 
-$(VENV_NAME)/bin/activate:
-	test -d $(VENV_NAME) || ${USER_PYTHON} -m venv $(VENV_NAME)
-	touch $(VENV_NAME)/bin/activate
+.DEFAULT_GOAL = install
+
+prepare-venv: $(VENV_NAME)/bin/python
+
+$(VENV_NAME)/bin/python:
+	make clean && ${USER_PYTHON} -m venv $(VENV_NAME)
 
 install: prepare-venv
 	${VENV_PYTHON} -m pip install -U pip
@@ -15,11 +18,13 @@ install: prepare-venv
 	${VENV_PYTHON} -m pip install -e .
 
 lint: install
-	${VENV_PYTHON} -m flake8
+	${VENV_PYTHON} -m ruff .
 
 format: install
 	${VENV_PYTHON} -m black .
+
 clean:
 	rm -rf .venv
-	rm -rf ./custom_module.egg-info
+	rm -rf custom_module.egg-info
+	rm -rf .ruff_cache
 	find ./custom_module -name __pycache__ -type d -exec rm -r {} +

@@ -17,4 +17,4 @@ jobs:
       - name: Install dependencies
         run: make install
       - name: Lint with ruff
-        run: .venv/bin/python -m ruff --format=github custom_module
+        run: .venv/bin/python -m ruff --format=github .
