@@ -10,7 +10,7 @@ This command will create a virtuelenv and install all dependencies
 
 ### Lint
 
-This command will ensure all dependencies are installed and run flake8
+This command will ensure all dependencies are installed and run ruff
 
 `make lint`
 
@@ -31,7 +31,7 @@ This command will delete the virtualenv
 - activate python environment: `source .venv/bin/activate`
 - run python script: `python <filename.py> `, e.g. `python train.py`
 - install new dependency: `pip install sklearn`
-- save current installed dependencies back to requirements.txt: `pip freeze > requirements.txt`
+- add new dependency to requirements.txt
 
 ## Docker
 
