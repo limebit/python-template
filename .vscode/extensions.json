@@ -9,5 +9,8 @@
     "ms-vsliveshare.vsliveshare",
     "ms-vscode.makefile-tools",
     "njpwerner.autodocstring"
+  ],
+  "unwantedRecommendations": [
+    "ms-python.black-formatter"
   ]
 }
