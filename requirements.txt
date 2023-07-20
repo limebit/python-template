@@ -19,7 +19,6 @@ defusedxml==0.7.1
 entrypoints==0.4
 executing==0.10.0
 fastjsonschema==2.16.1
-flake8==5.0.4
 fonttools==4.36.0
 idna==3.3
 importlib-metadata==4.12.0
