@@ -31,7 +31,7 @@ This command will delete the virtualenv
 - activate python environment: `source .venv/bin/activate`
 - run python script: `python <filename.py> `, e.g. `python train.py`
 - install new dependency: `pip install sklearn`
-- add new dependency to requirements.txt
+- add new dependency to `pyproject.toml`
 
 ## Docker
 

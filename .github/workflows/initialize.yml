@@ -30,7 +30,7 @@ jobs:
           echo "Renaming the project to ${{ env.REPOSITORY_NAME }}"
           sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }}/g docker-compose.yml
           sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }}/g Makefile
-          sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }}/g setup.py
+          sed -i -e s/custom_module/${{ env.REPOSITORY_NAME_SNAKE_CASE }}/g pyproject.toml
           sed -i -e s/python-template/${{ env.REPOSITORY_NAME }}/g .lfsconfig
           sed -i -e s/python-template/${{ env.REPOSITORY_NAME }}/g README.md
           sed -i -e s/python-template/${{ env.REPOSITORY_NAME }}/g .devcontainer/devcontainer.json
