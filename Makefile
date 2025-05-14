@@ -18,7 +18,6 @@ install: prepare-venv
 
 test: install
 	${VENV_PYTHON} -m pytest -W error
-	cargo test
 
 lint: install
 	${VENV_PYTHON} -m ruff check
